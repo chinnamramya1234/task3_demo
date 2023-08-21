@@ -11,7 +11,7 @@
     $conn = new mysqli("localhost", "root", "", "task3");
 
     if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-        $vendor_id = $row['vendor_id'];
+        $vendor_id = $_POST['vendor_id'];
         $vendor_name = $_POST['vendor_name'];
         $description = $_POST['description'];
         $email = $_POST['email'];

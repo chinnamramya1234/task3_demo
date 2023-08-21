@@ -17,14 +17,14 @@ if (!isset($_SESSION['username'])) {
 //           FROM product p
 //           JOIN vendor v ON p.vendor_id = v.vendor_id
 //           WHERE v.is_active = 1";
-$query = "SELECT * FROM product p
-          JOIN vendor v ON p.vendor_id = v.vendor_id
-          WHERE v.is_active = 1";
-$productResult = mysqli_query($conn, $query);
+// $query = "SELECT * FROM product p
+//           JOIN vendor v ON p.vendor_id = v.vendor_id
+//           WHERE v.is_active = 1";
+// $productResult = mysqli_query($conn, $query);
 
-if(!$productResult){
-    die("Query Falied " . mysqli_error($conn));
-}
+// if(!$productResult){
+//     die("Query Falied " . mysqli_error($conn));
+// }
 
 ?>
 
@@ -58,11 +58,21 @@ function confirmDelete() {
                 </thead>
                 <tbody>
                 <?php 
-                $sql = "SELECT * FROM product";
+                $sql = "SELECT p.*, v.vendor_name AS vendor_name FROM product p
+                JOIN vendor v ON p.vendor_id = v.vendor_id
+                WHERE v.is_active = 1";
                 $result = mysqli_query($conn, $sql);
                     if($result->num_rows > 0){
                         while($row = $result->fetch_assoc()){
-
+                    // $query = "SELECT * FROM product p
+                    //         JOIN vendor v ON p.vendor_id = v.vendor_id
+                    //         WHERE v.is_active = 1";
+                    // $productResult = mysqli_query($conn, $query);
+                    // if (!$productResult) {
+                    //     die("Query Failed: " . mysqli_error($conn));
+                    // }
+                    // while ($row = mysqli_fetch_assoc($productResult)) {
+    
                 ?>
                 <tr>
                     <td><?php echo $row['id']; ?> </td>

@@ -90,20 +90,22 @@
                   <label class="form-label" for="form3Example3cg"></label>
                 </div>
 
-                <!-- <div class="row"> -->
-                        <div class="form-outline mb-4 dropdown-content">
-                              <label for="vendor_id" class="col-form-label text-md-right  mb-0">Vendor:</label>
-                              <select option="select" id="vendor_id" name="vendor_id" class="form-control mb-2">
-                                    <?php
-                                        $query = "SELECT * FROM vendor WHERE is_active = '1'";
-                                        $result = mysqli_query($conn, $query);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                                echo "<option value='{$row['vendor_id']}'>{$row['vendor_name']}</option>";
-                                        }
-                                     ?>
-                             </select><br><br>
-                        </div>
-                    <!-- </div> -->
+                <div class="row">
+                        <div class="col-sm-3 form-group row">
+                            <label for="vendor_id" class="col-form-label text-md-right name mb-0"><b>Vendor:</b></label>      
+                        </div>    
+                        <div class="col-sm-9">
+                        <select id="vendor_id" name="vendor_id" style="margin-top: 10px;margin-bottom: 20px;margin-left: -26px;width: 380px;">
+                        <?php
+                            $query = "SELECT * FROM vendor WHERE is_active = 1";
+                            $result = mysqli_query($conn, $query);
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<option value='{$row['vendor_id']}'>{$row['vendor_name']}</option>";
+                            }
+                        ?>
+                        </select><br><br>
+                        </div>   
+                </div>
 
                 <!-- <div class="form-outline mb-4">
                   <input type="text" placeholder="Address" name="address" class="form-control form-control-lg" style="margin-top: -35px;" required/>
